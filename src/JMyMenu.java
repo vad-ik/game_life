@@ -10,10 +10,8 @@ public class JMyMenu extends JPanel {
     int[] machineRules;
     //--------------------------------------------------------
     int delay;
-Long maxMem= 0L;
-    /**
-     * Конструктор класса
-     */
+    Long maxMem = 0L;
+
     public JMyMenu(PlayingWindow frame, GameField gameField, int numRows, int numColumns, int[] machineRules, int delay) {
         this.gameField = gameField;
         this.numRows = numRows;
@@ -32,11 +30,7 @@ Long maxMem= 0L;
     }
     //--------------------------------------------------------
 
-    /**
-     * Функция создания меню "Файл"
-     *
-     * @return
-     */
+
     private JMenu createFileMenu(PlayingWindow frame) {
         // Создание выпадающего меню
         JMenu file = new JMenu("Игра");
@@ -92,7 +86,7 @@ Long maxMem= 0L;
                     flag[0] = true;
                 }
 
-                int size=numRows*numColumns;
+                int size = numRows * numColumns;
                 for (int i = 0; i < size; i++) {
                     ((MyCell) gameField.getComponent(i)).setIconeDed();
                 }
@@ -122,7 +116,7 @@ Long maxMem= 0L;
     }
 
     void step() {
-        
+
         int size = numRows * numColumns;
 
         for (int i = 0; i < size; i++) {

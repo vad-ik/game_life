@@ -11,10 +11,11 @@ public class MyCell extends JButton {
     static ImageIcon iconeDed;
     int id;
     ImageIcon nextColor;
-    int numColumns =PlayingWindow.width/10;
-    int numRows=PlayingWindow.height/10;
+    int numColumns = PlayingWindow.width / 10;
+    int numRows = PlayingWindow.height / 10;
+
     public MyCell(int id) {
-this.id=id;
+        this.id = id;
 
         try {
             iconeLife = new ImageIcon(ImageIO.read(getClass().getResource("assets/box.png")));
@@ -36,29 +37,29 @@ this.id=id;
                         setIcon(itPressed() ? iconeDed : iconeLife);
                         break;
                     case 1:
-                       planer();
-                        MainWindow.machineRules[9]=0;
+                        planer();
+                        MainWindow.machineRules[9] = 0;
                         break;
                     case 2:
                         gun();
 
-                        MainWindow.machineRules[9]=0;
+                        MainWindow.machineRules[9] = 0;
                         break;
                     case 3:
-eight();
-                        MainWindow.machineRules[9]=0;
+                        eight();
+                        MainWindow.machineRules[9] = 0;
                         break;
                     case 4:
 
-                        for (int i = 1; i < numRows-1; i+=3) {
-                            for (int j = 1; j <numColumns-1; j+=3) {
-                                ((MyCell)PlayingWindow.gameField.getComponent(i*numColumns+j)).setIcon(iconeLife);
-                                ((MyCell)PlayingWindow.gameField.getComponent(i*numColumns+j+1)).setIcon(iconeLife);
-                                ((MyCell)PlayingWindow.gameField.getComponent((i+1)*numColumns+j)).setIcon(iconeLife);
-                                ((MyCell)PlayingWindow.gameField.getComponent((i+1)*numColumns+j+1)).setIcon(iconeLife);
+                        for (int i = 1; i < numRows - 1; i += 3) {
+                            for (int j = 1; j < numColumns - 1; j += 3) {
+                                ((MyCell) PlayingWindow.gameField.getComponent(i * numColumns + j)).setIcon(iconeLife);
+                                ((MyCell) PlayingWindow.gameField.getComponent(i * numColumns + j + 1)).setIcon(iconeLife);
+                                ((MyCell) PlayingWindow.gameField.getComponent((i + 1) * numColumns + j)).setIcon(iconeLife);
+                                ((MyCell) PlayingWindow.gameField.getComponent((i + 1) * numColumns + j + 1)).setIcon(iconeLife);
                             }
                         }
-                        MainWindow.machineRules[9]=0;
+                        MainWindow.machineRules[9] = 0;
                         break;
                 }
             }
@@ -66,20 +67,22 @@ eight();
 
     }
 
-     boolean itPressed() {
+    boolean itPressed() {
         return (Objects.equals(getIcon(), iconeLife));
     }
 
-     void go() {
+    void go() {
         if (!Objects.equals(getIcon(), nextColor)) {
             setIcon(nextColor);
         }
 
     }
-    void setIconeLife(){
+
+    void setIconeLife() {
         nextColor = iconeLife;
     }
-    void setIconeDed(){
+
+    void setIconeDed() {
         nextColor = iconeDed;
     }
 
@@ -145,64 +148,67 @@ eight();
             }
         }
     }
-    void planer(){
-        ((MyCell)PlayingWindow.gameField.getComponent(id+numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+numColumns-1)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+numColumns+1)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+1)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-numColumns)).setIcon(iconeLife);
+
+    void planer() {
+        ((MyCell) PlayingWindow.gameField.getComponent(id + numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + numColumns - 1)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + numColumns + 1)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 1)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - numColumns)).setIcon(iconeLife);
     }
-    void gun(){
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id-2)).setIcon(iconeLife);
+    void gun() {
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id-3+numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-3+2*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-3-numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-3-2*numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 2)).setIcon(iconeLife);
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id-5+3*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-5-3*numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 3 + numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 3 + 2 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 3 - numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 3 - 2 * numColumns)).setIcon(iconeLife);
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id-7)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-7+2*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-7-2*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-7+3*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-7-3*numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 5 + 3 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 5 - 3 * numColumns)).setIcon(iconeLife);
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id-16)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-17)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 7)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 7 + 2 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 7 - 2 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 7 + 3 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 7 - 3 * numColumns)).setIcon(iconeLife);
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id-16-numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id-17-numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 16)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 17)).setIcon(iconeLife);
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id+5-3*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+5-2*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+5-numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 16 - numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id - 17 - numColumns)).setIcon(iconeLife);
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id+6)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+6-4*numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 5 - 3 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 5 - 2 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 5 - numColumns)).setIcon(iconeLife);
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id+8+numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+8-5*numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 6)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 6 - 4 * numColumns)).setIcon(iconeLife);
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id+9+numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+9)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+9-5*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+9-4*numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 8 + numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 8 - 5 * numColumns)).setIcon(iconeLife);
+
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 9 + numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 9)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 9 - 5 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 9 - 4 * numColumns)).setIcon(iconeLife);
 
 
-        ((MyCell)PlayingWindow.gameField.getComponent(id+18-2*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+18-numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+17-2*numColumns)).setIcon(iconeLife);
-        ((MyCell)PlayingWindow.gameField.getComponent(id+17-numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 18 - 2 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 18 - numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 17 - 2 * numColumns)).setIcon(iconeLife);
+        ((MyCell) PlayingWindow.gameField.getComponent(id + 17 - numColumns)).setIcon(iconeLife);
 
     }
-    public void eight(){
-        for (int i = 0; i <3 ; i++) {
-            for (int j = 0; j <3 ; j++) {
-                ((MyCell)PlayingWindow.gameField.getComponent(id-i-1-j*numColumns)).setIcon(iconeLife);
-                ((MyCell)PlayingWindow.gameField.getComponent(id+i+(j+1)*numColumns)).setIcon(iconeLife);
+
+    public void eight() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                ((MyCell) PlayingWindow.gameField.getComponent(id - i - 1 - j * numColumns)).setIcon(iconeLife);
+                ((MyCell) PlayingWindow.gameField.getComponent(id + i + (j + 1) * numColumns)).setIcon(iconeLife);
             }
         }
 

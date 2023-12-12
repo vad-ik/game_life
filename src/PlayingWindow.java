@@ -6,14 +6,15 @@ public class PlayingWindow extends JFrame {
     static int width = 1000;
     static int height = 1000;
     static GameField gameField;
-    public PlayingWindow(JFrame frame, int[] machineRules,int delay) {
+
+    public PlayingWindow(JFrame frame, int[] machineRules, int delay) {
         // Далее идёт разметка формы
         new JFrame("Игра Жизнь");
         setDefaultCloseOperation(HIDE_ON_CLOSE);
-        setResizable (false);
+        setResizable(false);
         gameField = new GameField(height / 10, width / 10);
 
-        JMyMenu myMenu = new JMyMenu(this, gameField, height / 10, width / 10, machineRules,delay);
+        JMyMenu myMenu = new JMyMenu(this, gameField, height / 10, width / 10, machineRules, delay);
         add(myMenu);
 
         gameField.setVisible(true);
@@ -24,9 +25,10 @@ public class PlayingWindow extends JFrame {
 
 
     }
-    public void setNewGameField(GameField newGameField){
+
+    public void setNewGameField(GameField newGameField) {
         gameField.setVisible(false);
-        gameField=newGameField;
+        gameField = newGameField;
         add(gameField);
         gameField.setVisible(true);
     }

@@ -12,7 +12,7 @@ public class Figures extends JMenu {
 
 
     // Пункт меню из команды с выходом из программы
-    Figures( int[] machineRules) {
+    Figures(int[] machineRules) {
         // Добавим в меню пункта open
         super("Фигуры");
         add(glider);
@@ -26,25 +26,25 @@ public class Figures extends JMenu {
         glider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                machineRules[9]=1;
+                machineRules[9] = 1;
             }
         });
         gun1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                machineRules[9]=2;
+                machineRules[9] = 2;
             }
         });
         eight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                machineRules[9]=3;
+                machineRules[9] = 3;
             }
         });
         agar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                machineRules[9]=4;
+                machineRules[9] = 4;
             }
         });
     }

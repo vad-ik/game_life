@@ -8,7 +8,7 @@ public class SettingWindow extends JFrame {
     int height = 600;
 
     public SettingWindow(MainWindow frame) {
-        JPanel panel=new JPanel();
+        JPanel panel = new JPanel();
         new JFrame("игра Жизнь");
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         GridLayout layout = new GridLayout(12, 2, 0, 0);
@@ -19,7 +19,7 @@ public class SettingWindow extends JFrame {
         panel.add(label);
         JSpinner spinner;
         String[] variantString = {"Клетка умирает", "Клетка не меняет своего состояния", "Клетка возрождается"};
-        String[] variantDelay = {"100","500", "1000", "2000"};
+        String[] variantDelay = {"100", "500", "1000", "2000"};
         for (int i = 0; i < 9; i++) {
             label = new JLabel("  " + i);
             panel.add(label);
@@ -42,26 +42,26 @@ public class SettingWindow extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i <9 ; i++) {
-                    JSpinner spinner= (JSpinner)(panel.getComponent(3+2*i));
-                    int result=0;
-                    switch((String)spinner.getValue()){
+                for (int i = 0; i < 9; i++) {
+                    JSpinner spinner = (JSpinner) (panel.getComponent(3 + 2 * i));
+                    int result = 0;
+                    switch ((String) spinner.getValue()) {
                         case "Клетка умирает":
-                            result=0;
+                            result = 0;
                             break;
                         case "Клетка не меняет своего состояния":
-                            result=1;
+                            result = 1;
                             break;
                         case "Клетка возрождается":
-                            result=2;
+                            result = 2;
                             break;
                     }
-                    frame.machineRules[i]=result;
+                    frame.machineRules[i] = result;
 
                 }
-                JSpinner spinner= (JSpinner)(panel.getComponent(21));
+                JSpinner spinner = (JSpinner) (panel.getComponent(21));
 
-                frame.delay=Integer.parseInt((String)spinner.getValue());
+                frame.delay = Integer.parseInt((String) spinner.getValue());
 
             }
         });
